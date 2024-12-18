@@ -1,5 +1,9 @@
 import pandas as pd
 
-# Load the data
-data = pd.read_csv("arm_stock_data.csv")
+# Update the path to the file's location
+file_path = "data/ARM_stock_data.csv"  # Adjust if needed
+
+
+    # Load the CSV file
+data = pd.read_csv(file_path)
 print(data.head())
