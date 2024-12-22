@@ -11,4 +11,5 @@ def trading_signal(predicted_state):
 predicted_states =  ['Increase', 'Increase', 'Increase', 'Increase', 'No Change', 'Decrease']
 
 signals = [trading_signal(state) for state in predicted_states]
-print(signals)
+
+
