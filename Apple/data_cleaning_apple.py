@@ -3,14 +3,15 @@ import pandas as pd
 import numpy as np
 import json
 import os
+import datetime
 
-# Step 1: Download stock data for Apple
+# Define ticker and date range
 ticker = "AAPL"
-start_date = "2018-01-01"
-end_date = "2023-12-31"
+start_date = "2019-01-01"
+today = "2024-12-27"  # Dynamic end date
 
 # Fetch historical data
-data = yf.download(ticker, start=start_date, end=end_date)
+data = yf.download(ticker, start=start_date, end=today)
 
 # Save raw data as CSV
 os.makedirs("data", exist_ok=True)  # Create 'data' directory if it doesn't exist
@@ -73,7 +74,7 @@ def build_transition_matrix(df):
 transition_matrix = build_transition_matrix(processed_data)
 
 # Step 4: Save transition matrix as JSON
-transition_matrix_path = "data/multidimensional_transition_matrix_AAPL.json"
+transition_matrix_path = "data/multidimensional_transition_matrix_AAPL_v2.json"
 with open(transition_matrix_path, "w") as f:
     json.dump(transition_matrix, f, indent=4)
 print(f"Transition matrix saved to {transition_matrix_path}")
